@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;  
+}
+
+h1 {
+  color: #333;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  
+  
+  width: 500px;
+  margin: 0 auto;
+}
+
+#premium-button {
+
+  background-color: #fff;
+  padding: 20px;
+  
+  
+  width: 500px;
+  margin: 0 auto;
+}
+
+
+
+label, input, textarea {
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px; 
+  border: 1px solid #ddd;
+  border-radius: 3px; 
+}
+
+#expense-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#expense-button:hover {
+  background-color: #0062cc;
+}
+#expenses {
+  margin-top: 30px;  
+  list-style: none;
+  padding: 0;
+}
+
+#expenses li {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  
+  margin-bottom: 10px;
+}
+
+#rzp-button1 {
+  background-color: #D2AF26;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  }
+
+  #leaderboardButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#leaderboardButton:hover {
+  background-color: #0062cc;
+}
+
+#downloadExpense {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#downloadExpense:hover {
+  background-color: #0062cc;
+}
+
+    </style>
+
+</head>
+<body>
+    
+    <form onsubmit="addExpense(event)" method="POST">
+        <table>
+            <tr>
+                <td><label for="description">Expense Description:</label></td>
+                <td><input type="text" name="description"></td>
+            </tr>
+            <tr>
+                <td><label for="amount">Expense Amount:</label></td>
+                <td><input type="number" name="amount"></td>
+            </tr>
+            <tr>
+                <td><label for="category">Expense Category:</label></td>
+                <td><select name="category">
+                    <option value="Food">Food</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Movie">Movie</option>
+                    <option value="Others">Others</option>
+                </select>
+            </tr>
+            <tr>
+              <td><label for="income">Income:</label></td>
+              <td><input type="number" name="income"></td>
+          </tr>
+          <tr>
+            <td><label for="rows">Number of rows to Display:</label></td>
+            <td><input type="number" name="rows" min="2" max="20"></td>
+        </tr>
+            <tr>
+                <td colspan="2"><button type="submit" id="expense-button">Add Expense</button></td>
+            </tr>
+        </table>
+
+    </form>
+    <div id="premium-button">
+      <table>
+        <tr>
+          <td>
+            <div id="message"></div>
+            <span id="premium-section">
+              
+            <button id="rzp-button1">Buy Premium</button>
+            <!-- <button onclick="premiumUser()">Token Decode</button> -->
+            </span>
+            
+          </td>
+
+        </tr>
+        <tr><td>
+          <button onclick="download()" id="downloadExpense">Download File</button>
+        </td></tr>
+      </table>
+    </div>
+
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <ul id="expenses">
+
+    </ul>
+    <div id="container">
+
+    </div>
+    <ul id="leaderboard">
+
+    </ul>
+    <h2>Download History</h2>
+    <ul id="downloads">
+
+      
+    </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+<script src="expense.js"></script>
+
+
+</html>
